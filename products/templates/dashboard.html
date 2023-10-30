@@ -1,0 +1,35 @@
+<html>
+<body>
+{% extends "base.html"%}
+{% load static%}
+{% block body %}
+ <link rel="stylesheet" href='{% static "dashboard.css"%}' />
+<div class="dashboard-content">
+            <table class="align-content-center table-pattern">
+                <tr>
+                    <th>Part Name</th>
+                    <th>Part Number</th>
+                    <th>Balance</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                </tr>
+                {% for x in stock %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{x.part_number}}</td>
+                    <td>{{x.Balance}}</td>
+                    <td>{{x.price}}</td>
+                    <td>{{x.location}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+
+
+
+
+</div>
+{% endblock body %}
+</body>
+</html>

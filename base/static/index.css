@@ -1,0 +1,97 @@
+body{
+    width: 100%;
+    margin: 0%;
+}
+.logo{
+    padding-left: 10%;
+}
+.nav-color{
+    background-color: #b1b0ad;
+}
+.navbar-nav h2{
+    padding: 16px;
+    color: black;
+}
+.navbar-nav a{
+    text-decoration: none;
+}
+.navigation{
+    margin-left: 10%;
+}
+.about{
+    background: rgba(0,0,0,0.5)url(pic4.png);
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-size: cover;
+
+}
+.about-us{
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.about-us h2{
+    font-size: 70px;
+    font-weight: 700
+}
+.about-us span{
+    color: yellow;
+}
+.product{
+    align-self: center;
+}
+.product h1{
+    padding-left: 40%;
+    font-size: 55px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.review{
+    background-color: #f7f8f6;
+    height: 250px;
+    padding: 30px;
+}
+.review h2{
+    margin-bottom: 15px;
+}
+.review h5{
+    font-weight: 300;
+    font-size: medium;
+}
+.product button{
+    background-color: rgb(201, 201, 30);
+
+}
+.info{
+    background-color: #f7f8f6;
+    height: 100px;
+    margin: 10px;
+}
+.contact h5{
+    padding-left: 40%;
+    font-size: 55px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+}
+.contact h2{
+    font-size: 32px;
+    font-weight: 700;
+}
+.contact p{
+    font-size: 20px;
+}
+.footer{
+    background-color: yellow;
+    height: 50px;
+    align-self: center;
+    align-content: center;
+    justify-items: center;
+}
+.footer p{
+    align-self: center;
+    align-content: center;
+    justify-items: center;
+}

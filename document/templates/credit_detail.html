@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html"%}
+{% load static%}
+{% block body %}
+ <link rel="stylesheet" href='{% static "document.css"%}' />
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+  <div class="container-fluid">
+    <div class="dropdown navbar-brand">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+    {{cart.customer_name}}
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Link 1</a></li>
+    <li><a class="dropdown-item" href="#">Link 2</a></li>
+    <li><a class="dropdown-item" href="#">Link 3</a></li>
+  </ul>
+</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse second" id="mynavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">
+          <a>Record Payment</a>
+            </button>
+        </li>
+        <li class="nav-item px-4">
+               <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<link rel="stylesheet" href='{% static "dashboard.css"%}' />
+<div class="dashboard-content">
+            <table class="align-content-center table-pattern">
+                <tr>
+                    <th>Date</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+
+                    <th>View cart</th>
+                    <th>Payment Detail</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+
+
+            </table>
+
+
+
+
+
+</div>
+{% endblock body%}
+
+</html>

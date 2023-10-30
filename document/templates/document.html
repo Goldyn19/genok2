@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html"%}
+{% load static%}
+{% block body %}
+ <link rel="stylesheet" href='{% static "document.css"%}' />
+    <div class="row justify-content-center ">
+      <div class="card col-lg-4" style="width:500px">
+        <img class="card-img-top " src='{%static "bookBackground.jpg"%}' alt="Card image">
+        <div class="card-img-overlay text-center text-white document">
+          <h4 class="card-title">Purchase Book</h4>
+          <p class="card-text">Record all Product brought in.</p>
+          <a href="/documents/view_purchasebook" class="btn btn-primary">See Details</a>
+        </div>
+      </div>
+      <div class="card col-lg-4" style="width:500px">
+        <img class="card-img-top" src='{%static "bookBackground.jpg"%}' alt="Card image">
+        <div class="card-img-overlay text-center text-white document">
+          <h4 class="card-title">Sales Book</h4>
+          <p class="card-text">Record all Sales made.</p>
+          <a href="#" class="btn btn-primary">See Details</a>
+        </div>
+      </div>
+      <div class="card col-lg-4" style="width:500px">
+        <img class="card-img-top" src='{%static "bookBackground.jpg"%}' alt="Card image">
+        <div class="card-img-overlay text-center text-white document">
+          <h4 class="card-title">Credit Record</h4>
+          <p class="card-text">Record all unpaid Sales.</p>
+          <a href="/documents/credit" class="btn btn-primary">See Details</a>
+        </div>
+      </div>
+    </div>
+{% endblock body%}
+
+</html>

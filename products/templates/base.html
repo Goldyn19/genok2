@@ -1,0 +1,220 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='{% static "base.css"%}' />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+
+    <script>
+      $(document).ready(function () {
+        $(".sidebar ul li").on("click",function () {
+          $(".sidebar ul li.active").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+    <script>
+      function myFunction() {
+        var element = document.getElementById("side_nav");
+        element.classList.toggle("hide_nav");
+      }
+    </script>
+    <style>
+ body{
+    background: white;
+}
+#side_nav{
+    background: black;
+    min-width: 250px;
+    max-width: 250px;
+
+
+
+}
+.btn2{
+    background-color: black;
+}
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-colour{
+    background: white;
+}
+.active{
+    background: white;
+    border-radius: 8px;
+}
+.sidebar li.active a,.sidebar li.active a:hover{
+    color: black;
+}
+.sidebar li a{
+    color: white;
+}
+.hide_nav{
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+    transition: all 0.5s;
+}
+.navigation{
+    margin-left: 10%;
+}
+.navbar-nav h4{
+    padding: 16px;
+    color: black;
+}
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="main-container d-flex">
+        <button
+          class="btn2 d-mb-none d-block px-1 py-0 text-white"
+          onclick="myFunction()"
+        >
+          <i class="fal fa-stream"></i>
+        </button>
+        <div class="sidebar" id="side_nav">
+          <div class="header-box">
+            <h1 class="fs-4">
+              <span class="bg-white text-dark rounded shadow px-2 me-2">GN</span
+              ><span class="text-white">Genok International</span>
+            </h1>
+            <ul class="list-unstyled px-2 pt-3">
+              <li class="active">
+                <a href="/dashboard" class="text-decoration-none d-block py-4"
+                  ><i class="fal fa-home me-2"></i>Dashboard</a
+                >
+              </li>
+              <li class="">
+                <a href="/documents" class="text-decoration-none d-block py-4"
+                  ><i class="fal fa-list me-2"></i>My Document</a
+                >
+              </li>
+              <li class="py-4">
+                <a
+                  href="/chat"
+                  class="text-decoration-none d-flex justify-content-between d-block"
+                >
+                  <span><i class="fal fa-comment"></i> Messages</span>
+                  <span class="bg-dark rounded-pill text-white py-0 px-2"
+                    >02</span
+                  >
+                </a>
+              </li>
+              <li class="">
+                <a href="#" class="text-decoration-none d-block py-4"
+                  ><i class="fal fa-envelope-open-text me-2"></i>Services</a
+                >
+              </li>
+              <li class="">
+                <a href="/carts" class="text-decoration-none d-block py-4"
+                  ><i class="fal fa-user me-2"></i>Customer Cart</a
+                >
+              </li>
+            </ul>
+          </div>
+          <hr class="h-colour mx-3" />
+          <ul class="list-unstyled px-2">
+            <li class="py-4">
+              <a href="/notification" class="text-decoration-none d-block"
+                ><i class="fal fa-bell"> Notifications</i></a
+              >
+            </li>
+            <li class="py-4">
+              <a href="#" class="text-decoration-none d-block"
+                ><i class="fal fa-bars"> Settings</i></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="content">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"
+                ><img
+                  src='{%static "GenokLogo.png"%}'
+                  alt=""
+                  class="img-fluid"
+                  height="100px"
+                  width="240px"
+              /></a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navigation">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                      ><h4>Home</h4></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><h4>About us</h4></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><h4>Products</h4></a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link "
+                      href="#"
+                      tabindex="-1"
+                      aria-disabled="true"
+                      ><h4>Contacts</h4></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link "
+                      href="{% url 'logout_user'%}"
+                      tabindex="-1"
+                      aria-disabled="true"
+                      ><h4>Logout</h4></a
+                    >
+                  </li>
+                </ul>
+                <div class="userid mx-auto">
+                  <img
+                    src='{%static "profile.png"%}'
+                    alt="profile pic"
+                    height="60px"
+                    width="60px"
+                    class="mx-auto"
+                  />
+                  <h3 class="mx-auto">Username: {{username}}</h3>
+                </div>
+
+              </div>
+            </div>
+          </nav>
+          <div class="dashboard-content">
+            {% block body %}
+            {% endblock body %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

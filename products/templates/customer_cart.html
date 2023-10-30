@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+{% extends "base.html"%}
+{% load static%}
+{% block body %}
+ <link rel="stylesheet" href='{% static "customer_cart.css"%}' />
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+  <div class="container-fluid">
+    <div class="dropdown navbar-brand">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+    {{customer_name}}
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Link 1</a></li>
+    <li><a class="dropdown-item" href="#">Link 2</a></li>
+    <li><a class="dropdown-item" href="#">Link 3</a></li>
+  </ul>
+</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse second" id="mynavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'view_cart_details' cart_id %}">View Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <div class="dashboard-content">
+      <table class="align-content-center table-pattern">
+        <tr>
+          <th>Part Name</th>
+          <th>Part Number</th>
+          <th>Balance</th>
+          <th>Price</th>
+          <th>Add to cart</th>
+        </tr>
+        {% for x in stock %}
+          <form method="POST">
+              {% csrf_token %}
+              <tr>
+                    <td><input type="text" id="table-content" name="part_name" value="{{x.name}}" readonly></td>
+                    <td><input type="text" id="table-content" name="part_number" value="{{x.part_number}}" readonly></td>
+                    <td><input type="text" id="table-content" name="balance" value="{{x.Balance}}" readonly></td>
+                    <td><input type="text" id="table-content" name="price" value="{{x.price}}" readonly></td>
+                    <td>
+                        <input type="number" id="counter" name="quantity" value="1">
+                        <button class="btn btn-primary" type="submit">Add to cart</button>
+                    </td>
+                </tr>
+          </form>
+                {% endfor %}
+      </table>
+    </div>
+
+{% endblock body%}
+</body>
+</html>

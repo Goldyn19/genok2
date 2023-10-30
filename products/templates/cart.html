@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html"%}
+{% load custom_tags %}
+{% load static%}
+{% block body %}
+ <link rel="stylesheet" href='{% static "cart.css"%}' />
+  <div class="row justify-content-center px-5">
+    <div class="card col-lg-3 px-3 " >
+      <img class="card-img-top " src='{%static "cart2.png"%}' alt="Card image" >
+      <div class="card-img-overlay text-center text-dark document">
+        <h4 class="card-title">Create cart</h4>
+        <p class="card-text">Click the button</p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+          <i class="fal fa-plus-circle fa-4x"></i>
+        </button>
+      </div>
+    </div>
+    {% regroup cart_items by cart_ID as cart_item %}
+    {% for items in cart_item%}
+    <div class="card col-lg-3">
+      <form method="POST">{% csrf_token %}
+      <img class="card-img-top" src='{%static "cart2.png"%}' alt="Card image">
+      <div class="card-img-overlay text-center text-dark document">
+        <h2 style="text-transform:capitalize;">{{items.grouper}}</h2>
+        <h2 hidden><input type="text" class="table-content" name="customer_name2" value="{{items.grouper.cartID}}" readonly></h2>
+        {% for things in items.list|slice:":3"%}
+        <hr>
+        <p class="card-text" style="text-transform:capitalize;">{{things.product}}</p>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">View cart details</button>
+      </div>
+        </form>
+    </div>
+    {% endfor %}
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Customer Name</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="" method="POST" id="">{% csrf_token %}
+          <div class="col-lg-7">
+            <input type="text" class="form-control" placeholder="Customer Name" name="customer_name">
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer mx-auto">
+         <button type="submit" class="btn btn-success" >Create</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock body%}
+
+</html>

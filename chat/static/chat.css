@@ -1,0 +1,76 @@
+body{
+    background: white;
+}
+#side_nav{
+    background: black;
+    min-width: 250px;
+    max-width: 250px;
+}
+.btn{
+    background-color: black;
+}
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-colour{
+    background: white;
+}
+.active{
+    background: white;
+    border-radius: 8px;
+}
+.sidebar li.active a,.sidebar li.active a:hover{
+    color: black;
+}
+.sidebar li a{
+    color: white;
+}
+.hide_nav{
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+    transition: all 0.5s;
+}
+.navigation{
+    margin-left: 10%;
+}
+.navbar-nav h4{
+    padding: 16px;
+    color: black;
+}
+.pic, .pro-pic{
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    padding-bottom: 0px;
+}
+.name{
+    flex-grow: 2;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    
+}
+
+.name p{
+    font-size: 14px;
+    padding-top: 0%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.friend{
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+

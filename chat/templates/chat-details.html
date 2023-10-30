@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html"%}
+{% load static%}
+{% block body %}
+<style>
+.chat-body{
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid slateblue; */
+    overflow: auto;
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: center; */
+}
+.sub-container{
+
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid blue; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.chat-box-received{
+    width: 200px;
+    height: auto;
+    font-size: 14px;
+    background-color: slateblue;
+    color: white;
+    margin-left: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding:10px 10px;
+    border-radius: 10px;
+}
+.chat-box-sent{
+    background-color: red;
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 10px;
+    width: 200px;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+     padding:10px 10px;
+    flex-direction: column-reverse;
+}
+.footer{
+width: fit-content;
+display: flex;
+justify-content: center;
+background-color: black;
+}
+
+</style>
+<link rel="stylesheet" href='{% static "chat.css"%}' />
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+              <div class="container-fluid">
+                <div class="dropdown navbar-brand">
+              <button type="button" class="btn btn-primary  " data-bs-toggle="dropdown">
+                {{receiver_profile.name}}
+              </button>
+            </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse second" id="mynavbar">
+                    <ul class="navbar-nav mx-auto">
+                    {% for profiles in profile %}
+                    {% if user.id != profiles.id %}
+                        <li class="nav-item ">
+                            <div class="friends-container px-3">
+                                <a href="{% url 'chat_details' profiles.id %}" style="color:black; text-decoration: none">
+                                    <div class="friends">
+                                        <div class="pic">
+                                            <img src='{%static "profile1.jpg"%}' class="rounded-circle" alt="" height="50px" width="50px"/>
+                                        </div>
+                                        <div class="name">
+                                            <p>@{{profiles.name}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        {% endif%}
+                        {% endfor %}
+                    </ul>
+
+
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+<div class="sub-container">
+    <div class="chat-body" id="chat-body">
+        {% for chats in chat %}
+        {% if chats.sender == receiver_profile and chats.receiver == sender_profile %}
+        <div class="chat-box-sent ">
+            {{chats}}
+        </div>
+        {% elif chats.sender == sender_profile and chats.receiver == receiver_profile%}
+        <div class="chat-box-received">
+            {{chats}}
+        </div>
+        {% endif %}
+        {% endfor%}
+        <div class="chat-box-sent" id="chat-box-sent" style="display : none"></div>
+    </div>
+</div>
+    <form id="myform" class="footer mx-auto fixed-bottom" method="POST">
+        {% csrf_token %}
+        {{form.messageBody}}
+            <button type="submit" id="submit"> Send</button>
+    </form>
+
+{% endblock body%}
+</html>

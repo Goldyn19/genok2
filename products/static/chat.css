@@ -1,0 +1,30 @@
+.pic, .pro-pic{
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    padding-bottom: 0px;
+}
+.name{
+    flex-grow: 2;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.name p{
+    font-size: 14px;
+    padding-top: 0%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: white;
+}
+.friend{
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}

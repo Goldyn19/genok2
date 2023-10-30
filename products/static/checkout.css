@@ -1,0 +1,35 @@
+
+#table-content{
+    background-color: inherit;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    text-align: center;
+
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th, td{
+    padding: 12px;
+    text-align: center;
+}
+.dashboard-content{
+    overflow-x: auto;
+}
+.table-pattern th, .table-pattern td{
+    border: 1px solid;
+
+}
+.table-pattern th{
+    background-color: rgb(156, 156, 132);
+}
+.table-pattern tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.table-pattern tr:hover{
+    background-color: #ddd;
+}
