@@ -8,9 +8,7 @@ th, td{
     padding: 12px;
     text-align: center;
 }
-.dashboard-content{
-    overflow-x: auto;
-}
+
 .table-pattern th, .table-pattern td{
     border: 1px solid;
 

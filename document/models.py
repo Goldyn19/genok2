@@ -14,6 +14,9 @@ class Credit_ID(models.Model):
     customer_name = models.CharField(max_length=125)
     customer_id = models.CharField(max_length=50)
 
+    def __str__(self):
+        return f" {self.customer_name} "
+
 
 class CreditRecord(models.Model):
     item = models.ForeignKey(Cart_id, on_delete=models.CASCADE, null=True)

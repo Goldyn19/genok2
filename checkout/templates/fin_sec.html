@@ -32,6 +32,7 @@ input[type="radio"] + label:before {
 input[type="radio"]:checked + label:before {
   background-color:  #000000;
 }
+
     </style>
 </head>
 <body>
@@ -42,7 +43,6 @@ input[type="radio"]:checked + label:before {
      {% regroup cart_item by cart_ID as cart_item %}
     {% for items in cart_item%}
     <div class="card col-lg-3 py-3">
-      <form method="POST">{% csrf_token %}
       <img class="card-img-top" src='{%static "cart2.png"%}' alt="Card image">
       <div class="card-img-overlay text-center text-dark document">
         <h2 style="text-transform:capitalize;">{{items.grouper}}</h2>
@@ -51,39 +51,11 @@ input[type="radio"]:checked + label:before {
         <hr>
         <p class="card-text" style="text-transform:capitalize;">{{things.product}}</p>
         {% endfor %}
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-              <i class="fal fa-cart-shopping fa-shake fa-2xl"></i>
-        </button>
-      </div>
-          <div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Method of Payment</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <a href="{% url 'confirm_checkout' items.grouper.cartID %}"><button class="btn btn-primary" type="button">Confirm Payment</button></a>
       </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="" method="POST" id="">{% csrf_token %}
-          <div class="col-lg-7">
-              <div class="radio-group">
-    <input type="radio" id="option1" name="radio" value="paid">
-    <label for="option1">Cash</label>
-  </div>
-  <div class="radio-group">
-    <input type="radio" id="option3" name="radio" value="credit ">
-    <label for="option3">Credit</label>
-        </div>
-      </div>
-      <!-- Modal footer -->
-      <div class="modal-footer mx-auto">
-         <button type="submit" class="btn btn-success" >Confirm</button>
-      </div>
-        </form>
     </div>
+
     {% endfor %}
 </div>
 

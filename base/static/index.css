@@ -1,6 +1,8 @@
 body{
     width: 100%;
     margin: 0%;
+    padding: 0%
+    overflow-y:hidden
 }
 .logo{
     padding-left: 10%;
@@ -31,19 +33,28 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
+
 }
 .about-us h2{
-    font-size: 70px;
+    font-size: 3rem;
     font-weight: 700
+}
+@media (min-width: 768px) { /* 768px is the breakpoint for md screens in Bootstrap 4 and 5 */
+    .about-us h2 {
+        font-size: 4rem;
+    }
 }
 .about-us span{
     color: yellow;
+}
+.pad{
+display: none;
 }
 .product{
     align-self: center;
 }
 .product h1{
-    padding-left: 40%;
+
     font-size: 55px;
     padding-bottom: 40px;
     padding-top: 40px;
@@ -70,7 +81,7 @@ body{
     margin: 10px;
 }
 .contact h5{
-    padding-left: 40%;
+
     font-size: 55px;
     padding-bottom: 40px;
     padding-top: 40px;
@@ -83,6 +94,16 @@ body{
 .contact p{
     font-size: 20px;
 }
+ .iconst {
+        font-size: 12rem;
+    }
+
+    /* Icon size for md screens and up */
+    @media (min-width: 768px) { /* 768px is the breakpoint for md screens in Bootstrap 4 and 5 */
+        .icon {
+            font-size: 2rem;
+        }
+    }
 .footer{
     background-color: yellow;
     height: 50px;

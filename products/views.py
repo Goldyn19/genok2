@@ -121,7 +121,7 @@ def Add_To_Cart(request, cart_id, part_number, quantity):
     user = request.user.username
     user_id = get_object_or_404(User, username=user)
     product_in_cart = False
-    cart_product = CartItem.objects.filter(product_id=part_number, cart_ID=cart )
+    cart_product = CartItem.objects.filter(product_id=part_number, cart_ID=cart)
     for cart_items in cart_product:
         if cart_items.product.part_number == p.part_number:
             cart_items.AugmentedQuantity(quantity)
@@ -157,6 +157,14 @@ def proceed_payment(request, cart_id):
     cartID.is_checked_out = True
     cartID.save()
     return redirect('carts')
+
+
+def confirm_payment(request, cart_id):
+    cartID = get_object_or_404(Cart_id, cartID=cart_id)
+    cartID.is_checked_out = True
+    cartID.save()
+    return redirect('carts')
+
 
 
 def Remove_All(request):

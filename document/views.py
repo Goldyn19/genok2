@@ -6,9 +6,11 @@ from products.models import Stock, Cart_id
 from .models import PurchaseBook, Credit_ID, CreditRecord
 from django.shortcuts import get_object_or_404
 from products.cart import generate_credit_id
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 @login_required(login_url='login_user')
+
 def documents(request):
     template = loader.get_template('document.html')
     return HttpResponse(template.render())
@@ -21,6 +23,7 @@ def view_purchasebook(request):
         'pb': pb,
     }
     return HttpResponse(template.render(context, request))
+
 
 def purchaseBook(request):
     template = loader.get_template('purchasebook.html')

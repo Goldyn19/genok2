@@ -65,21 +65,17 @@ class Location(models.Model):
 
 class SalesRecord(models.Model):
     item = models.ForeignKey(CartItem, on_delete=models.CASCADE)
-    is_paid = models.BooleanField(default=False)
-    Transfer = 'TF'
-    Cash = 'CS'
-    POS = 'POS'
-    Cheque = 'chq'
     payment_method_choices = [
-        (Transfer, 'Transfer'),
-        (Cash, 'Cash'),
-        (POS, 'POS'),
-        (Cheque, 'Cheque')
+        ('Credit', 'Credit'),
+        ('Paid', 'Paid')
+
     ]
     payment_method = models.CharField(
-        max_length=3,
+        max_length=6,
         choices=payment_method_choices,
     )
+    is_confirmed = models.BooleanField(default=False)
+
 
 
 # Create your models here.
